@@ -1,10 +1,33 @@
-import React from 'react';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import { Worker } from "@react-pdf-viewer/core";
+
+import Layout from "./components/common/Layout/Layout";
+import ResumeSection from "./components/Professional/Resume/ResumeSection";
+import CoverLetterSection from "./components/Professional/CoverLetter/CoverLetterSection";
 
 function App() {
   return (
-    <div>
-      <h1>Hello React with Webpack!</h1>
-    </div>
+    <Router>
+      <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" element={<Navigate to="/professional/resume" />} />
+            <Route
+              path="/professional"
+              element={<Navigate to="/professional/resume" />}
+            />
+            <Route path="/professional/resume" element={<ResumeSection />} />
+            <Route path="/professional/cover-letter" element={<CoverLetterSection />} />
+          </Route>
+        </Routes>
+      </Worker>
+    </Router>
   );
 }
 
