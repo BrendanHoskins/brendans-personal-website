@@ -167,7 +167,7 @@ function Header() {
 
       <div style={{ display: "flex", gap: "12px" }}>
         <a
-          href="https://www.linkedin.com/in/brendan-hoskins-100/"
+          href="https://linkedin.com/in/brendanhoskins"
           target="_blank"
           rel="noopener noreferrer"
           style={{ textDecoration: "none" }}
