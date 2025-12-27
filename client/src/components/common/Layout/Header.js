@@ -80,17 +80,17 @@ function Header() {
     { label: "Cover Letter", path: "/professional/cover-letter" },
     { label: "Projects", path: "/"},
     { label: "More About Me", path: "/" },
-    { label: "Reading", path: "/"},
-    { label: "Blog", path: "/"}
+    // { label: "Reading", path: "/"},
+    // { label: "Blog", path: "/"}
   ];
 
-  const personalItems = [
-    { label: "About Me", path: "/" },
-    { label: "Projects", path: "/" },
-    { label: "Blog", path: "/" },
-    { label: "Movies", path: "/" },
-    { label: "Reading", path: "/" },
-  ];
+  // const personalItems = [
+  //   { label: "About Me", path: "/" },
+  //   // { label: "Projects", path: "/" },
+  //   { label: "Blog", path: "/" },
+  //   { label: "Movies", path: "/" },
+  //   { label: "Reading", path: "/" },
+  // ];
 
   return (
     <header style={headerStyle}>
@@ -135,7 +135,7 @@ function Header() {
             </div>
           )}
         </div>
-        <div style={{ position: "relative" }}>
+        {/* <div style={{ position: "relative" }}>
           <button
             style={buttonStyle}
             onClick={() =>
@@ -161,8 +161,8 @@ function Header() {
                 </button>
               ))}
             </div>
-          )}
-        </div>
+          )} */}
+        {/* </div> */}
       </div>
 
       <div style={{ display: "flex", gap: "12px" }}>
