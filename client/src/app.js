@@ -10,6 +10,7 @@ import { Worker } from "@react-pdf-viewer/core";
 import Layout from "./components/common/Layout/Layout";
 import ResumeSection from "./components/Professional/Resume/ResumeSection";
 import CoverLetterSection from "./components/Professional/CoverLetter/CoverLetterSection";
+import MoreAboutMeProfessionalPage from "./components/Professional/MoreAboutMe/MoreAboutMeProfessionalPage";
 
 function App() {
   return (
@@ -23,7 +24,14 @@ function App() {
               element={<Navigate to="/professional/resume" />}
             />
             <Route path="/professional/resume" element={<ResumeSection />} />
-            <Route path="/professional/cover-letter" element={<CoverLetterSection />} />
+            <Route
+              path="/professional/cover-letter"
+              element={<CoverLetterSection />}
+            />
+            <Route
+              path="/professional/about-me"
+              element={<MoreAboutMeProfessionalPage />}
+            />
           </Route>
         </Routes>
       </Worker>

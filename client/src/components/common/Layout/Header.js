@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
 function Header() {
-  const [activeDropdown, setActiveDropdown] = useState(null);
   const navigate = useNavigate();
 
   const buttonStyle = {
@@ -48,50 +47,6 @@ function Header() {
     zIndex: 1000,
   };
 
-  const dropdownStyle = {
-    position: "absolute",
-    top: "100%",
-    backgroundColor: "white",
-    boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-    borderRadius: "6px",
-    padding: "8px 0",
-    minWidth: "200px",
-    zIndex: 1001,
-  };
-
-  const dropdownItemStyle = {
-    padding: "10px 20px",
-    cursor: "pointer",
-    display: "block",
-    width: "100%",
-    textAlign: "left",
-    border: "none",
-    backgroundColor: "transparent",
-    fontSize: "14px",
-    color: "#2c3e50",
-    transition: "background-color 0.2s ease",
-    ":hover": {
-      backgroundColor: "#f8f9fa",
-    },
-  };
-
-  const professionalItems = [
-    { label: "Resume", path: "/professional/resume" },
-    { label: "Cover Letter", path: "/professional/cover-letter" },
-    { label: "Projects", path: "/"},
-    { label: "More About Me", path: "/" },
-    // { label: "Reading", path: "/"},
-    // { label: "Blog", path: "/"}
-  ];
-
-  // const personalItems = [
-  //   { label: "About Me", path: "/" },
-  //   // { label: "Projects", path: "/" },
-  //   { label: "Blog", path: "/" },
-  //   { label: "Movies", path: "/" },
-  //   { label: "Reading", path: "/" },
-  // ];
-
   return (
     <header style={headerStyle}>
       <div style={{ display: "flex", alignItems: "center" }}>
@@ -107,62 +62,24 @@ function Header() {
           }}
           alt="Portrait"
         />
-        <div style={{ position: "relative" }}>
-          <button
-            style={buttonStyle}
-            onClick={() =>
-              setActiveDropdown(
-                activeDropdown === "professional" ? null : "professional"
-              )
-            }
-          >
-            Professional
-          </button>
-          {activeDropdown === "professional" && (
-            <div style={dropdownStyle}>
-              {professionalItems.map((item) => (
-                <button
-                  key={item.path}
-                  style={dropdownItemStyle}
-                  onClick={() => {
-                    navigate(item.path);
-                    setActiveDropdown(null);
-                  }}
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
-        {/* <div style={{ position: "relative" }}>
-          <button
-            style={buttonStyle}
-            onClick={() =>
-              setActiveDropdown(
-                activeDropdown === "personal" ? null : "personal"
-              )
-            }
-          >
-            Personal
-          </button>
-          {activeDropdown === "personal" && (
-            <div style={dropdownStyle}>
-              {personalItems.map((item) => (
-                <button
-                  key={item.path}
-                  style={dropdownItemStyle}
-                  onClick={() => {
-                    navigate(item.path);
-                    setActiveDropdown(null);
-                  }}
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
-          )} */}
-        {/* </div> */}
+        <button
+          style={buttonStyle}
+          onClick={() => navigate("/professional/resume")}
+        >
+          Resume
+        </button>
+        <button
+          style={buttonStyle}
+          onClick={() => navigate("/professional/cover-letter")}
+        >
+          Cover Letter
+        </button>
+        <button
+          style={buttonStyle}
+          onClick={() => navigate("/professional/about-me")}
+        >
+          About Me
+        </button>
       </div>
 
       <div style={{ display: "flex", gap: "12px" }}>
