@@ -2,7 +2,7 @@ name: Deploy website to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -39,6 +39,9 @@ jobs:
       - name: Add SPA 404 fallback
         run: cp client/dist/index.html client/dist/404.html
 
+      - name: Set custom domain CNAME
+        run: echo "brendanhoskins.com" > client/dist/CNAME
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
@@ -57,5 +60,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-
