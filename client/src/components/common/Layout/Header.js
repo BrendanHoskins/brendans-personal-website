@@ -1,116 +1,88 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Header() {
   const navigate = useNavigate();
-
-  const buttonStyle = {
-    padding: "12px 24px",
-    margin: "0 15px",
-    backgroundColor: "transparent",
-    color: "#2c3e50",
-    border: "none",
-    borderRadius: "6px",
-    cursor: "pointer",
-    fontSize: "16px",
-    fontWeight: "500",
-    transition: "all 0.3s ease",
-    ":hover": {
-      backgroundColor: "#4a90e2",
-      color: "white",
-      transform: "translateY(-2px)",
-    },
-  };
-
-  const logoStyle = {
-    padding: "8px",
-    backgroundColor: "transparent",
-    border: "none",
-    borderRadius: "50%",
-    cursor: "pointer",
-    transition: "transform 0.3s ease",
-    ":hover": {
-      transform: "scale(1.1)",
-    },
-  };
-
-  const headerStyle = {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: "15px 40px",
-    backgroundColor: "white",
-    borderBottom: "1px solid #e9ecef",
-    boxShadow: "0 2px 10px rgba(0,0,0,0.05)",
-    position: "sticky",
-    top: 0,
-    zIndex: 1000,
-  };
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header style={headerStyle}>
-      <div style={{ display: "flex", alignItems: "center" }}>
-        <img
-          src="/portrait.jpeg"
-          style={{
-            width: "48px",
-            height: "48px",
-            borderRadius: "50%",
-            marginRight: "20px",
-            objectFit: "cover",
-            objectPosition: "top",
-          }}
-          alt="Portrait"
-        />
-        <button
-          style={buttonStyle}
-          onClick={() => navigate("/professional/resume")}
-        >
-          Resume
-        </button>
-        <button
-          style={buttonStyle}
-          onClick={() => navigate("/professional/cover-letter")}
-        >
-          Cover Letter
-        </button>
-        <button
-          style={buttonStyle}
-          onClick={() => navigate("/professional/about-me")}
-        >
-          About Me
-        </button>
-      </div>
+    <header className={`site-header ${isOpen ? "site-header--open" : ""}`}>
+      <div className="site-header__bar">
+        <div className="site-header__left">
+          <button
+            aria-label="Go to homepage"
+            onClick={() => navigate("/professional/resume")}
+            style={{
+              background: "transparent",
+              border: "none",
+              padding: 0,
+              cursor: "pointer",
+            }}
+          >
+            <img src="/portrait.jpeg" alt="Portrait" className="brand-avatar" />
+          </button>
 
-      <div style={{ display: "flex", gap: "12px" }}>
-        <a
-          href="https://linkedin.com/in/brendanhoskins"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ textDecoration: "none" }}
-        >
-          <button style={logoStyle}>
-            <img
-              src="/linkedin-logo.svg"
-              alt="LinkedIn"
-              style={{ width: "32px" }}
-            />
+          <nav className="site-header__nav" aria-label="Primary">
+            <button
+              className="nav-button"
+              onClick={() => {
+                navigate("/professional/resume");
+                setIsOpen(false);
+              }}
+            >
+              Resume
+            </button>
+            <button
+              className="nav-button"
+              onClick={() => {
+                navigate("/professional/cover-letter");
+                setIsOpen(false);
+              }}
+            >
+              Cover Letter
+            </button>
+            <button
+              className="nav-button"
+              onClick={() => {
+                navigate("/professional/about-me");
+                setIsOpen(false);
+              }}
+            >
+              About Me
+            </button>
+          </nav>
+        </div>
+
+        <div className="site-header__right">
+          <a
+            href="https://linkedin.com/in/brendanhoskins"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <button className="icon-button">
+              <img src="/linkedin-logo.svg" alt="LinkedIn" className="icon" />
+            </button>
+          </a>
+          <a
+            href="https://github.com/BrendanHoskins"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+          >
+            <button className="icon-button">
+              <img src="/github-logo.svg" alt="GitHub" className="icon" />
+            </button>
+          </a>
+          <button
+            className="site-header__toggle"
+            aria-expanded={isOpen}
+            aria-controls="primary-navigation"
+            onClick={() => setIsOpen((v) => !v)}
+          >
+            Menu
           </button>
-        </a>
-        <a
-          href="https://github.com/BrendanHoskins"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ textDecoration: "none" }}
-        >
-          <button style={logoStyle}>
-            <img
-              src="/github-logo.svg"
-              alt="GitHub"
-              style={{ width: "32px" }}
-            />
-          </button>
-        </a>
+        </div>
       </div>
     </header>
   );

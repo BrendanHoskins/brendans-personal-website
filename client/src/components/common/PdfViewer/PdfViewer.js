@@ -12,6 +12,7 @@ import "@react-pdf-viewer/search/lib/styles/index.css";
 function PdfViewer({ fileUrl, maxWidth = 900, height }) {
   const containerRef = useRef(null);
   const [computedHeight, setComputedHeight] = useState(null);
+  const [initialScale, setInitialScale] = useState(1.2);
 
   useEffect(() => {
     function updateHeight() {
@@ -26,6 +27,11 @@ function PdfViewer({ fileUrl, maxWidth = 900, height }) {
     updateHeight();
     window.addEventListener("resize", updateHeight);
     return () => window.removeEventListener("resize", updateHeight);
+  }, []);
+
+  useEffect(() => {
+    const small = window.innerWidth < 768;
+    setInitialScale(small ? 1.0 : 1.2);
   }, []);
   const getFilePluginInstance = getFilePlugin();
   const { Download } = getFilePluginInstance;
@@ -96,21 +102,17 @@ function PdfViewer({ fileUrl, maxWidth = 900, height }) {
   return (
     <div
       ref={containerRef}
+      className="pdf-container"
       style={{
+        width: "100%",
         maxWidth: `${maxWidth}px`,
         height: height ?? (computedHeight ? `${computedHeight}px` : "90vh"),
         maxHeight: "100vh",
-        margin: "24px auto",
-        border: "1px solid #e0e0e0",
-        borderRadius: "8px",
-        overflow: "hidden",
-        backgroundColor: "#fff",
-        boxShadow: "0 1px 2px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.06)",
       }}
     >
       <Viewer
         fileUrl={fileUrl}
-        defaultScale={1.2}
+        defaultScale={initialScale}
         plugins={[
           defaultLayoutPluginInstance,
           getFilePluginInstance,
