@@ -12,15 +12,13 @@ function MoreAboutMeProfessionalPage() {
         </p>
       </section>
       <section style={styles.section}>
-        <h2 style={styles.sectionTitle}>Beyond the keyboard</h2>
         <div style={styles.cardGrid}>
           <div style={styles.card}>
             <div style={styles.cardIcon}>🏋️</div>
             <div style={styles.cardContent}>
               <h3 style={styles.cardTitle}>Weightlifting</h3>
               <p style={styles.cardText}>
-                Training consistently keeps me disciplined and focused—habits
-                that translate into my work.
+                Weightlifting consistently keeps me balanced and translates into my work.
               </p>
             </div>
           </div>
@@ -29,8 +27,7 @@ function MoreAboutMeProfessionalPage() {
             <div style={styles.cardContent}>
               <h3 style={styles.cardTitle}>Tennis & Golf</h3>
               <p style={styles.cardText}>
-                Patience, strategy, and steady improvement are skills I practice
-                on and off the court.
+                I love the social aspect of these games.
               </p>
             </div>
           </div>
@@ -39,8 +36,7 @@ function MoreAboutMeProfessionalPage() {
             <div style={styles.cardContent}>
               <h3 style={styles.cardTitle}>Chess</h3>
               <p style={styles.cardText}>
-                I love thinking a few moves ahead—great for systems design and
-                feature planning.
+                I thoroughly enjoy studying to be better just as I do in engineering.
               </p>
             </div>
           </div>
@@ -59,8 +55,7 @@ function MoreAboutMeProfessionalPage() {
             <div style={styles.cardContent}>
               <h3 style={styles.cardTitle}>Movies & Reading</h3>
               <p style={styles.cardText}>
-                Great stories and great ideas feed creativity and broaden
-                perspective.
+                I love to be moved by great stories.
               </p>
             </div>
           </div>
@@ -69,8 +64,7 @@ function MoreAboutMeProfessionalPage() {
             <div style={styles.cardContent}>
               <h3 style={styles.cardTitle}>Cooking & Dining</h3>
               <p style={styles.cardText}>
-                I love trying new restaurants and cuisines—exploration and
-                curiosity are core to who I am.
+                I love trying new restaurants and preparing new cuisines—exploration is core to who I am.
               </p>
             </div>
           </div>
